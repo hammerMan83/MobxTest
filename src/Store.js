@@ -5,9 +5,13 @@ import { DiceApi } from "./Api";
 class Store {
   @observable diceNumber = 0;
   
-  onChange = e => {
+  rollDice() {
     DiceApi.getRandomCubeNumber().then(result => (this.diceNumber = result));
-  };  
+  }
+      
+  // onChange = e => {
+  //   DiceApi.getRandomCubeNumber().then(result => (this.diceNumber = result));
+  // };  
 }
 
 let store = new Store();

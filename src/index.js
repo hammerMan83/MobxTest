@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import { observable } from "mobx";
 import { inject, observer, Provider } from "mobx-react";
+import { store } from "./Store";
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -11,9 +12,13 @@ const styles = {
 
 const App = () => (
   <div style={styles}>
-    <Hello name="CodeSandbox" />
-    <h2>Start editing to see some magic happen {'\u2728'}</h2>
+    <Hello name="CodeSandbox" />    
   </div>
 );
 
-render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  document.getElementById('root')
+);
