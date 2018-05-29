@@ -1,2 +1,0 @@
-# MobxTest
-Created with CodeSandbox
