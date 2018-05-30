@@ -6,20 +6,29 @@ import PropTypes from 'prop-types';
 //                 observer(({ store }) => <h1>Dice Number: {store.diceNumber}</h1>)
 //                );
 
-@inject(["store"]) // decorator pulling from Provider
+@inject("store") // decorator pulling from Provider
 @observer
 class Hello extends React.Component {
   constructor(props, context) {
     super(props, context);
   }
 
-  componentDid
+  componentDidMount() {
+    this.props.store.rollDice();
+  }
 
   render() {
-    return (<h1>Dice Number: {this.props.store.diceNumber}</h1>);
+    return (
+      <h1>{this.props.store.diceNumber}</h1>
+    )
+    //return (<h1>Dice Number: {this.props.store.diceNumber}</h1>);
   }
   //componentDid
 
 }
+
+Hello.propTypes = {
+  store: PropTypes.object
+};
 
 export default Hello;

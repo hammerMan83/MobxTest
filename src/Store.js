@@ -6,7 +6,10 @@ class Store {
   @observable diceNumber = 0;
   
   rollDice() {
-    DiceApi.getRandomCubeNumber().then(result => (this.diceNumber = result));
+    //DiceApi.getRandomCubeNumber().then(result => (this.diceNumber = result));
+    setInterval(() =>
+     DiceApi.getRandomCubeNumber().then(result => (this.diceNumber = result)),
+     2000);
   }
       
   // onChange = e => {
