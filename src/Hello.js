@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 //                 observer(({ store }) => <h1>Dice Number: {store.diceNumber}</h1>)
 //                );
 
-@inject("store") // decorator pulling from Provider
+@inject('store') // decorator pulling from Provider
 @observer
 class Hello extends React.Component {
   constructor(props, context) {
@@ -14,7 +14,8 @@ class Hello extends React.Component {
   }
 
   componentDidMount() {
-    this.props.store.rollDice();
+    //this.props.store.rollDice();
+    this.props.store.diceNumber = Math.floor(Math.random() * 5) + 1;
   }
 
   render() {
@@ -28,7 +29,7 @@ class Hello extends React.Component {
 }
 
 Hello.propTypes = {
-  store: PropTypes.object
+  //store: PropTypes.object
 };
 
 export default Hello;
