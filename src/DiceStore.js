@@ -2,7 +2,8 @@ import { observable, action } from "mobx";
 
 class DiceStore {
   @observable diceNumber = 0;
-  
+  @observable shouldRole = true;
+
   constructor(diceApi) {
     this.diceApi = diceApi;
   }
@@ -12,9 +13,18 @@ class DiceStore {
   @action 
   rollDice = () => 
   { 
-    console.log('rolling!');
-    this.diceNumber = this.diceApi.makeRandomDiceNumber(); 
+    if (this.shouldRole)
+    {
+      console.log('rolling!');
+      this.diceNumber = this.diceApi.makeRandomDiceNumber(); 
+    }
   };
+
+  @action
+  toggleRollDice = () =>
+  {
+    this.shouldRole = !this.shouldRole;
+  }
 
   // onChange = e => {
   //   // action
