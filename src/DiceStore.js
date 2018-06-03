@@ -12,8 +12,16 @@ class DiceStore {
   @action 
   rollDice = () => 
   { 
+    console.log('rolling!');
     this.diceNumber = this.diceApi.makeRandomDiceNumber(); 
   };
+
+  // onChange = e => {
+  //   // action
+  //   this.text = e.target.value;
+  //   fetchAllCaps(e.target.value).then(val => (this.text = val));
+  // };
+
 }
 
 export default DiceStore;

@@ -14,12 +14,12 @@ class Dice extends React.Component {
   // }
 
   render() {
-    const {store} = this.props;
+    let {store} = this.props;
 
     return (
       <div>
         <h1>{store.diceNumber}</h1>
-        <button type="button" onclick={store.rollDice()}>Roll Dice</button>
+        <input value="Roll Dice" type="button" onClick={store.rollDice} />
       </div>
     )
   }
