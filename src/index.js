@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import Dice from './Dice';
 import { observable } from "mobx";
 import { inject, observer, Provider } from "mobx-react";
-import store from "./Store";
+import DiceStore from "./DiceStore";
+import DiceApi from "./DiceApi";
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -12,9 +13,12 @@ const styles = {
 
 const App = () => (
   <div style={styles}>
-    <Hello name="CodeSandbox" />    
+    <Dice name="CodeSandbox" />    
   </div>
 );
+
+const api = new DiceApi();
+const store = new DiceStore(api);
 
 render(
   <Provider store={store}>
