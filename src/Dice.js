@@ -18,7 +18,7 @@ class Dice extends React.Component {
      timerId = setInterval(() => {
        //console.log('Timed roll');
        store.rollDice();
-     }, 1500);
+     }, 1000);
    }
 
   //  componentWillUnmount() {
@@ -28,11 +28,13 @@ class Dice extends React.Component {
   render() {
     let {store} = this.props;
     let toggleOnOffTitle = store.shouldRole ? "ON" : "OFF";
-
+    //<input value={'Roll Dice: ' + toggleOnOffTitle}  type="button" onClick={store.toggleRollDice} />
     return (
       <div>
-        <h1>{store.diceNumber}</h1>        
-        <input value={'Roll Dice: ' + toggleOnOffTitle}  type="button" onClick={store.toggleRollDice} />
+        <h1>{store.diceNumber}</h1>                
+        <button onClick={store.toggleRollDice}>
+          {'Roll Dice: ' + toggleOnOffTitle}
+        </button>
       </div>
     )
   }
